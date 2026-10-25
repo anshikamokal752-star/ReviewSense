@@ -1,12 +1,15 @@
+import os
+from pathlib import Path
 
-from flask import Flask, render_template, request, jsonify
 import joblib
+from flask import Flask, jsonify, render_template, request
+
+BASE_DIR = Path(__file__).resolve().parent
 
 app = Flask(__name__)
 
-# Load the trained machine learning model
-model = joblib.load("model.pkl")
-vectorizer = joblib.load("vectorizer.pkl")
+model = joblib.load(BASE_DIR / "model.pkl")
+vectorizer = joblib.load(BASE_DIR / "vectorizer.pkl")
 
 
 @app.route("/")
@@ -20,18 +23,14 @@ def predict():
     review = data.get("review", "").strip()
 
     if not review:
-        return jsonify({"error": "Please enter a product review."}), 400
+        return jsonify({"error": "Please enter a review"}), 400
 
-    # Convert review into numerical features
     review_vector = vectorizer.transform([review])
+    prediction = str(model.predict(review_vector)[0]).lower()
 
-    # Predict sentiment
-    prediction = model.predict(review_vector)[0]
-
-    return jsonify({
-        "sentiment": str(prediction).capitalize()
-    })
+    return jsonify({"sentiment": prediction})
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
