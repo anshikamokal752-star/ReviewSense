@@ -26,7 +26,7 @@ form.addEventListener("submit", async function (event) {
     resultBox.className = "result-box";
 
     try {
-        const response = await fetch("https://anytime-taking-unicycle.ngrok-free.dev/predict", {
+        const response = await fetch("/predict", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
