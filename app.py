@@ -14,7 +14,7 @@ vectorizer = joblib.load(BASE_DIR / "vectorizer.pkl")
 
 @app.route("/")
 def home():
-    return send_from_directory(".", "index")
+    return send_from_directory(".", "index.html")
 
 
 @app.route("/predict", methods=["POST"])
