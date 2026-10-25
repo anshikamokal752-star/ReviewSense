@@ -1,0 +1,209 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ReviewSense | AI Review Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <a href="#home" class="logo">
+            <span class="logo-icon">✦</span>
+            <span>
+                Review<span class="purple">Sense</span>
+                <small>AI Product Review Analyzer</small>
+            </span>
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#analyzer" class="nav-button">Get Started →</a>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+            <span class="badge">AI POWERED · SENTIMENT ANALYSIS</span>
+
+            <h1>
+                Understand What
+                <span class="purple">Customers Think.</span>
+            </h1>
+
+            <p>
+                Enter a product review and let our machine learning
+                model analyze whether the sentiment is positive
+                or negative.
+            </p>
+
+            <div class="benefit">✓ &nbsp; Machine Learning Based Predictions</div>
+            <div class="benefit">✓ &nbsp; Quick Customer Sentiment Analysis</div>
+        </div>
+
+
+        <!-- Review Analyzer -->
+        <div class="analyzer-card" id="analyzer">
+
+            <h2>💬 Analyze Product Review</h2>
+
+            <p class="card-description">
+                Type a product review below and click Analyze.
+            </p>
+
+            <form id="reviewForm">
+
+                <textarea
+                    id="reviewInput"
+                    placeholder="E.g. The product quality is excellent and I am very happy with my purchase."
+                    required
+                ></textarea>
+
+                <button type="submit" id="analyzeButton">
+                    ✨ Analyze Sentiment
+                </button>
+
+            </form>
+
+            <div id="resultBox" class="result-box" aria-live="polite">
+                <div class="result-icon">🧠</div>
+
+                <div>
+                    <h3 id="resultTitle">Your result will appear here</h3>
+                    <p id="resultMessage">
+                        Enter a review above to analyze its sentiment.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- How It Works -->
+    <section class="how-section" id="how-it-works">
+
+        <span class="badge">HOW IT WORKS</span>
+
+        <h2>Simple Steps, <span class="purple">Powerful Insights</span></h2>
+
+        <p class="section-description">
+            Our AI model uses TF-IDF and Logistic Regression
+            to classify product reviews.
+        </p>
+
+        <div class="steps">
+
+            <div class="step-card">
+                <span class="step-number">01</span>
+                <div class="step-icon">📝</div>
+                <h3>Enter Review</h3>
+                <p>Type a product review into the text box.</p>
+            </div>
+
+            <div class="step-card">
+                <span class="step-number">02</span>
+                <div class="step-icon">⚙️</div>
+                <h3>Process Text</h3>
+                <p>TF-IDF converts the text into numerical features.</p>
+            </div>
+
+            <div class="step-card">
+                <span class="step-number">03</span>
+                <div class="step-icon">📊</div>
+                <h3>Predict Sentiment</h3>
+                <p>Logistic Regression predicts positive or negative sentiment.</p>
+            </div>
+
+            <div class="step-card">
+                <span class="step-number">04</span>
+                <div class="step-icon">💡</div>
+                <h3>Get Insights</h3>
+                <p>Understand customer opinions about products.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+
+        <div class="about-text">
+            <span class="badge">ABOUT THE PROJECT</span>
+
+            <h2>Technology Behind <span class="purple">ReviewSense</span></h2>
+
+            <p>
+                ReviewSense is a machine learning project that uses
+                Natural Language Processing (NLP) to analyze product
+                reviews. TF-IDF converts text into numerical features,
+                while Logistic Regression classifies reviews as
+                positive or negative.
+            </p>
+        </div>
+
+        <div class="technology-card">
+            <h3>Technologies Used</h3>
+
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <span>🐍</span>
+                    <strong>Python</strong>
+                    <small>Programming</small>
+                </div>
+
+                <div class="tech-item">
+                    <span>🌐</span>
+                    <strong>Flask</strong>
+                    <small>Backend</small>
+                </div>
+
+                <div class="tech-item">
+                    <span>🤖</span>
+                    <strong>Scikit-learn</strong>
+                    <small>Machine Learning</small>
+                </div>
+
+                <div class="tech-item">
+                    <span>📄</span>
+                    <strong>TF-IDF</strong>
+                    <small>Text Processing</small>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            Review<span class="purple">Sense</span>
+            <small>AI Product Review Analyzer</small>
+        </div>
+
+        <p>Product Review Polarity Classification</p>
+
+        <p>Built with Python, Flask & Machine Learning</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
+```
