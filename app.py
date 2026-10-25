@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 import joblib
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, request, send_from_directory
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -14,7 +14,7 @@ vectorizer = joblib.load(BASE_DIR / "vectorizer.pkl")
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return send_from_directory(".", "index")
 
 
 @app.route("/predict", methods=["POST"])
